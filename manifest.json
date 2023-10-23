@@ -16,7 +16,7 @@
     "content_scripts": [
       {
         "matches": ["https://www.vinted.fr/member/items/favourite_list"],
-        "js": ["js/popup.js"],
+        "js": ["js/popup.js", "js/app.js"],
         "run_at": "document_end"
       }
     ],
