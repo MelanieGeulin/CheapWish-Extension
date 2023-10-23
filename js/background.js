@@ -16,11 +16,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     const urls = message.urls;
     const urlsText = urls.join('\n'); // Convert the URLs to a text string
 
-    // Use chrome.downloads to initiate the download
+    // Use chrome.downloads to initiate the download with overwrite
     chrome.downloads.download({
       url: "data:text/plain;base64," + btoa(urlsText), // Encode the text as base64
       filename: "collected_urls.txt",
-      saveAs: true,
+      saveAs: false, // Do not prompt for a download location
+      conflictAction: "overwrite", // Overwrite if the file already exists
     });
   }
 });
